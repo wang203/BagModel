@@ -37,10 +37,21 @@
 # year=$1
 # join -1 4 -2 1 <(sort -k 4 $datapath/metadata/binpid$year) <(sort -k 1 $datapath/results/pidfeatureprediprob$year) | sort -k 2 -k 4 > $datapath/datafile/pidbingtuidsortppredipprobfeature$year
 # echo '0 0 0 0 0 0' >> $datapath/datafile/pidbingtuidsortppredipprobfeature$year
-# year=$1
+year=$1
+path='/l/vision/wang203/bagmodel/data/datafile'
 # python toppidperuser.py $year
-##in $datapath/pidbingtuidsortppredipprobfeature2007
-##out $datapath/toppidlist2007
+# ##in $datapath/pidbingtuidsortppredipprobfeature2007
+# ##out $datapath/toppidlist2007
+
+# awk '{print $3;}' $path/toppidlist$year > $path/toppidgt$year
+
+#awk '{print $2" "$3;}' $path/toppidlist$year | sort | uniq > $path/toppidbingt$year
+awk '{print $2" "$4" "$3;}' $path/toppidlist$year | sort -k1 -k2 | uniq > $path/toppidusergt$year
+
+
+# sed -i '1d' $path/toppiduser$year
+# sed -i '1d' $path/toppidbin$year
+
 
 # awk '{print $4;}' /l/vision/wang203/bagmodel/data/datafile/pidbingtuidsortppredipprobfeature2007 | uniq | wc -l
 # wc -l /l/vision/wang203/bagmodel/data/datafile/toppidlist2007

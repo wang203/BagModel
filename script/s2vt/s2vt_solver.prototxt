@@ -1,4 +1,4 @@
-net: "./s2vt.prototxt"
+net: "/l/vision/wang203/bagmodel/script/s2vt/s2vt.prototxt"
 
 # s2vt.prototxt supports multiple sequence to sequence architectures:
 # (1) stage: 'factored' stage: '2-layer'
@@ -30,7 +30,7 @@ max_iter: 25000
 momentum: 0.9
 weight_decay: 0.0000
 snapshot: 1000
-snapshot_prefix: "./snapshots/s2vt_youtube_vgg"
+snapshot_prefix: "/l/vision/wang203/bagmodel/script/s2vt/snapshots/s2vt_youtube_vgg"
 solver_mode: GPU
 random_seed: 1701
 average_loss: 100
